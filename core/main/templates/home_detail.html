@@ -7,10 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ car.name }}</h1>
-    <h3>{{ car.price }}</h3>
-    <p>{{ car.year }}</p>
-    <img src="{{ car.img.url }}" width="800px" alt=""><br><hr><br>
+    <div style="display: flex; flex-direction: row;">
+        {% for i in categorys %}
+            {% for j in i.carcategory.all %}
+            <div style="display: flex; flex-direction: column; margin: 30px; ">
+                <h1>{{ j.name }}</h1>
+                <a href="{% url 'home_detail_detail' j.id %}"><img src="{{ j.img.url }}" width="300px" alt=""></a>
+                <h4>{{ j.price }}</h4>
+            </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+
     <a href="{% url 'home' %}"><Button>Home</Button></a>
 </body>
 </html>

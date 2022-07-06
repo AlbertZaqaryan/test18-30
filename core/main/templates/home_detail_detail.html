@@ -1,5 +1,3 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
 <body>
-    {% for i in cats %}
-        <a href="{% url 'home_detail' i.id %}"><button>{{ i.name }}</button></a>
-    {% endfor %}
+    <h1>{{ car.name }}</h1>
+    <p>{{ car.about }}</p>
+    <img src="{{ car.img.url }}" width="600px" alt="">
+    <h4>{{ car.price }}</h4>
+    <h5>{{ car.year }}</h5>
+    <a href="{% url 'home' %}"><Button>HOME</Button></a>
 
 </body>
 </html>
