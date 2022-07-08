@@ -1,18 +1,10 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-</head>
-<body>
+{% block content %}
     {% for i in cats %}
         <a href="{% url 'home_detail' i.id %}"><button>{{ i.name }}</button></a>
     {% endfor %}
-
-</body>
-</html>
+    <div>
+        <img src="../../media/media/bernatar2.jpg" width="1920px" alt="">
+    </div>
+{% endblock %}
