@@ -2,7 +2,7 @@
 
 {% block content %}
     {% for i in cats %}
-        <a href="{% url 'home_detail' i.id %}"><button>{{ i.name }}</button></a>
+        <a href="{% url 'brands' i.id %}"><button>{{ i.name }}</button></a>
     {% endfor %}
     <div>
         <img src="../../media/media/bernatar2.jpg" width="1920px" alt="">

@@ -3,7 +3,7 @@
 {% block content %}
     <div style="display: flex; flex-direction: row;">
         {% for i in categorys %}
-            {% for j in i.carcategory.all %}
+            {% for j in i.carbrend.all %}
             <div style="display: flex; flex-direction: column; margin: 30px; ">
                 <h1>{{ j.name }}</h1>
                 <a href="{% url 'home_detail_detail' j.id %}"><img src="{{ j.img.url }}" width="300px" alt=""></a>

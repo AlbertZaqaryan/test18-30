@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Car, Category
+from .models import Car, Category, Brand
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from .forms import NewUserForm
@@ -52,11 +52,19 @@ class HomeListView(ListView):
         cats = Category.objects.all()
         return render(request, self.template_name, {'cats':cats})
 
+
+class BrandListView(ListView):
+	template_name = 'brands.html'
+
+	def get(self, request, id):
+		brands = Category.objects.filter(pk=id)
+		return render(request, self.template_name, {'id':id, 'brands':brands})
+
 class CategoryListView(ListView):
     template_name = 'home_detail.html'
 
     def get(self, request, id):
-        categorys = Category.objects.filter(pk=id)
+        categorys = Brand.objects.filter(pk=id)
         return render(request, self.template_name, {'id':id, 'categorys':categorys})
 
 class CategoryDetailView(DetailView):
